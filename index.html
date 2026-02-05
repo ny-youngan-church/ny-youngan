@@ -9,20 +9,17 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 15px; }
         header { text-align: center; padding: 25px 0; background: #fff; margin-bottom: 20px; border-radius: 0 0 20px 20px; }
         .banner-img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .motto { font-size: 1.5rem; color: #2c3e50; margin: 25px 0; font-weight: bold; word-break: keep-all; line-height: 1.4; }
+        .motto { font-size: 1.5rem; color: #2c3e50; margin: 25px 0; font-weight: bold; text-align: center; }
         .content-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
         .card { flex: 1; min-width: 300px; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .card h3 { color: #8b4513; border-bottom: 2px solid #8b4513; padding-bottom: 10px; margin-top: 0; }
         
-        /* 채팅방을 화면에 꽉 차게 넓힙니다 */
-        .board-section { background: #fff; padding: 25px; border-radius: 15px; margin-bottom: 30px; min-height: 600px; }
-        .board-section h2 { border-left: 6px solid #007bff; padding-left: 15px; margin-top: 0; margin-bottom: 25px; font-size: 1.4rem; }
+        /* 게시판 영역 설정: 높이를 충분히 확보합니다 */
+        .board-section { background: #fff; padding: 25px; border-radius: 15px; margin-bottom: 30px; min-height: 700px; }
+        .board-section h2 { border-left: 6px solid #007bff; padding-left: 15px; margin-bottom: 25px; font-size: 1.4rem; }
         
-        /* [비법] 채팅 위젯 너비를 100%로 강제 고정 */
-        #sil-widget-6984f3934a2dac001395395a, .sil-widget-chatroom { 
-            width: 100% !important; 
-            max-width: 100% !important; 
-        }
+        /* [보정] 채팅창이 잘리지 않고 꽉 차게 나오도록 합니다 */
+        #sil-widget-6984f3934a2dac001395395a { width: 100% !important; min-height: 600px !important; }
 
         footer { background: #333; color: #fff; padding: 40px 20px; text-align: center; border-radius: 20px 20px 0 0; }
     </style>
@@ -58,7 +55,7 @@
                         d.body.appendChild(s);
                     })();
                 </script>
-                <div class="sil-widget-chatroom sil-widget" id="sil-widget-6984f3934a2dac0013950c03"></div>
+                <div class="sil-widget-chatroom sil-widget" id="sil-widget-6984f3934a2dac001395395a"></div>
             </section>
         </main>
         <footer><p>© 2026 뉴욕 영안교회 (NY Young An Church)</p></footer>
