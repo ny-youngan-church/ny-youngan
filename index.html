@@ -9,19 +9,21 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 15px; }
         header { text-align: center; padding: 25px 0; background: #fff; margin-bottom: 20px; border-radius: 0 0 20px 20px; }
         .banner-img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .motto { font-size: 1.5rem; color: #2c3e50; margin: 25px 0; font-weight: bold; text-align: center; }
+        .motto { font-size: 1.5rem; color: #2c3e50; margin: 25px 0; font-weight: bold; text-align: center; line-height: 1.4; }
+        
         .content-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
         .card { flex: 1; min-width: 300px; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .card h3 { color: #8b4513; border-bottom: 2px solid #8b4513; padding-bottom: 10px; margin-top: 0; }
         
-        /* 게시판 영역 설정: 높이를 충분히 확보합니다 */
-        .board-section { background: #fff; padding: 25px; border-radius: 15px; margin-bottom: 30px; min-height: 700px; }
-        .board-section h2 { border-left: 6px solid #007bff; padding-left: 15px; margin-bottom: 25px; font-size: 1.4rem; }
+        /* [중요] 게시판 영역을 아주 크게 만들고 하단 여백을 넉넉히 주어 입력창을 노출시킵니다 */
+        .board-section { background: #fff; padding: 25px; border-radius: 15px; margin-bottom: 80px; min-height: 800px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+        .board-section h2 { border-left: 6px solid #007bff; padding-left: 15px; margin-top: 0; margin-bottom: 25px; font-size: 1.4rem; color: #333; }
         
-        /* [보정] 채팅창이 잘리지 않고 꽉 차게 나오도록 합니다 */
-        #sil-widget-6984f3934a2dac001395395a { width: 100% !important; min-height: 600px !important; }
+        /* 채팅창 너비 조절 및 높이 강제 설정 */
+        #sil-widget-6984f3934a2dac001395395a { width: 100% !important; min-height: 700px !important; border: 1px solid #eee; border-radius: 10px; }
 
-        footer { background: #333; color: #fff; padding: 40px 20px; text-align: center; border-radius: 20px 20px 0 0; }
+        footer { background: #333; color: #fff; padding: 50px 20px; text-align: center; border-radius: 20px 20px 0 0; position: relative; z-index: 10; }
+        footer p { margin: 8px 0; opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -30,6 +32,7 @@
             <img src="main-banner.png" alt="뉴욕 영안교회" class="banner-img">
             <div class="motto">2026년 표어: 경건 습관을 훈련하는 영안 공동체</div>
         </header>
+
         <main>
             <div class="content-row">
                 <div class="card">
@@ -45,6 +48,7 @@
                     </ul>
                 </div>
             </div>
+
             <section class="board-section">
                 <h2>영안 나눔 게시판 (채팅형)</h2>
                 <script data-sil-id="6984f3934a2dac001395395a">
@@ -58,20 +62,12 @@
                 <div class="sil-widget-chatroom sil-widget" id="sil-widget-6984f3934a2dac001395395a"></div>
             </section>
         </main>
-        <style>
-    /* 게시판과 하단 정보 사이에 넉넉한 공간(100px)을 주어 입력창이 보이게 합니다 */
-    .board-section { 
-        background: #fff; 
-        padding: 25px; 
-        border-radius: 15px; 
-        margin-bottom: 100px !important; /* 아래쪽 간격을 대폭 늘림 */
-        min-height: 600px; 
-    }
-    /* 하단 정보가 위로 올라오지 못하게 고정 */
-    footer { position: relative; z-index: 10; }
-</style>
-        <footer><p>© 2026 뉴욕 영안교회 (NY Young An Church)</p></footer>
+
+        <footer>
+            <p style="font-weight: bold; font-size: 1.1rem;">© 2026 뉴욕 영안교회 (NY Young An Church)</p>
+            <p>주소: 59-26 Kissena Blvd. Flushing NY 11355</p>
+            <p>전화: (917)678-2207 / Cell: (917)963-9356</p>
+        </footer>
     </div>
 </body>
 </html>
-
