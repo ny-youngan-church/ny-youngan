@@ -58,7 +58,20 @@
                 <div class="sil-widget-chatroom sil-widget" id="sil-widget-6984f3934a2dac001395395a"></div>
             </section>
         </main>
+        <style>
+    /* 게시판과 하단 정보 사이에 넉넉한 공간(100px)을 주어 입력창이 보이게 합니다 */
+    .board-section { 
+        background: #fff; 
+        padding: 25px; 
+        border-radius: 15px; 
+        margin-bottom: 100px !important; /* 아래쪽 간격을 대폭 늘림 */
+        min-height: 600px; 
+    }
+    /* 하단 정보가 위로 올라오지 못하게 고정 */
+    footer { position: relative; z-index: 10; }
+</style>
         <footer><p>© 2026 뉴욕 영안교회 (NY Young An Church)</p></footer>
     </div>
 </body>
 </html>
+
