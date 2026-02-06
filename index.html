@@ -5,52 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>뉴욕 영안교회</title>
     <style>
-        /* 1. 기본 스타일 및 배경 */
         body { font-family: 'Malgun Gothic', sans-serif; margin: 0; padding: 0; background-color: #f4f7f9; scroll-behavior: smooth; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 15px 20px 15px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px 40px 15px; }
 
-        /* 2. 상단 네비게이션 메뉴 (홈피 다운 맛을 내는 핵심) */
-        nav { 
-            background: #fff; 
-            padding: 15px 0; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        nav a { 
-            text-decoration: none; 
-            color: #444; 
-            font-weight: bold; 
-            margin: 0 20px; 
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
+        /* 상단 메뉴바 */
+        nav { background: #fff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        nav a { text-decoration: none; color: #444; font-weight: bold; margin: 0 15px; font-size: 1.05rem; }
         nav a:hover { color: #007bff; }
 
-        /* 3. 배너 및 표어 영역 */
-        header { text-align: center; padding: 25px 0; background: #fff; margin-bottom: 20px; border-radius: 0 0 20px 20px; }
+        /* 배너 및 표어 */
+        header { text-align: center; padding: 25px 0; background: #fff; margin-bottom: 25px; border-radius: 0 0 20px 20px; }
         .banner-img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .motto { font-size: 1.5rem; color: #2c3e50; margin: 25px 0; font-weight: bold; word-break: keep-all; line-height: 1.4; }
+        .motto { font-size: 1.5rem; color: #2c3e50; margin: 25px 0; font-weight: bold; }
         
-        /* 4. 레이아웃 (말씀/소식 카드) */
-        .content-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
-        .card { flex: 1; min-width: 300px; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .card h3 { color: #8b4513; border-bottom: 2px solid #8b4513; padding-bottom: 10px; margin-top: 0; }
-        
-        /* 5. 게시판 영역 */
-        .board-section { background: #fff; padding: 25px; border-radius: 15px; margin-bottom: 80px; min-height: 700px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-        .board-section h2 { border-left: 6px solid #007bff; padding-left: 15px; margin-top: 0; margin-bottom: 25px; font-size: 1.4rem; color: #333; }
-        
-        #sil-widget-6984f3934a2dac001395395a { width: 100% !important; min-height: 600px !important; }
+        /* 섹션 레이아웃 */
+        .content-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 25px; align-items: stretch; }
+        .card { background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .card h3 { color: #8b4513; border-bottom: 2px solid #8b4513; padding-bottom: 12px; margin-top: 0; margin-bottom: 20px; font-size: 1.25rem; }
 
-        footer { background: #333; color: #fff; padding: 50px 20px; text-align: center; border-radius: 20px 20px 0 0; }
-        footer p { margin: 8px 0; opacity: 0.8; }
+        /* 설교 영역 조절 (2:1 비율) */
+        .main-sermon { flex: 2; min-width: 320px; }
+        .past-sermons { flex: 1; min-width: 300px; }
+        
+        /* 게시판 및 소식 영역 (2:1 비율) */
+        .board-section { flex: 2; min-width: 320px; min-height: 600px; }
+        .news-section { flex: 1; min-width: 300px; }
 
-        /* 모바일 대응 메뉴 간격 */
-        @media (max-width: 600px) {
-            nav a { margin: 0 8px; font-size: 0.95rem; }
+        /* 지난 설교 리스트 스타일 */
+        .sermon-list { list-style: none; padding: 0; margin: 0; }
+        .sermon-item { padding: 12px 0; border-bottom: 1px dashed #ddd; display: flex; align-items: center; }
+        .sermon-item:last-child { border-bottom: none; }
+        .sermon-item a { text-decoration: none; color: #555; font-size: 0.95rem; display: flex; align-items: center; width: 100%; }
+        .sermon-item a:hover { color: #007bff; }
+        .play-icon { color: #ff0000; margin-right: 10px; font-size: 1.2rem; }
+
+        /* 소식 리스트 스타일 */
+        .news-list { list-style: none; padding: 0; line-height: 2.2; font-size: 1rem; }
+        .news-list li { margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .news-list span { margin-right: 8px; }
+
+        footer { background: #333; color: #fff; padding: 40px 20px; text-align: center; border-radius: 20px 20px 0 0; margin-top: 20px; }
+
+        /* 모바일 대응 */
+        @media (max-width: 850px) {
+            .main-sermon, .past-sermons, .board-section, .news-section { flex: 1 1 100%; }
         }
     </style>
 </head>
@@ -70,33 +68,48 @@
         </header>
 
         <main>
-            <div class="content-row">
-                <div class="card" id="sermon">
+            <div class="content-row" id="sermon">
+                <div class="card main-sermon">
                     <h3>주일 설교</h3>
-                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/4r6XuI6N8uw" frameborder="0" allowfullscreen style="border-radius: 10px;"></iframe>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/4r6XuI6N8uw" frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
-                <div class="card" id="news">
-                    <h3>교회 소식</h3>
-                    <ul style="list-style: none; padding: 0; line-height: 2.5; font-size: 1rem;">
-                        <li>✅ 안내: 엄미령 권사님 감사합니다</li>
-                        <li>✅ 다음 주 기도: 김숙이 권사님</li>
-                        <li>✅ 찬양: 오카리나 찬양팀 감사합니다</li>
+                <div class="card past-sermons">
+                    <h3>지난 말씀 다시보기</h3>
+                    <ul class="sermon-list">
+                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID1" target="_blank"><span class="play-icon">▶</span> 1월 25일: 믿음의 경주</a></li>
+                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID2" target="_blank"><span class="play-icon">▶</span> 1월 18일: 성령의 열매</a></li>
+                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID3" target="_blank"><span class="play-icon">▶</span> 1월 11일: 참된 예배자</a></li>
+                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID4" target="_blank"><span class="play-icon">▶</span> 1월 4일: 새해의 소망</a></li>
                     </ul>
                 </div>
             </div>
 
-            <section class="board-section" id="board">
-                <h2>영안 나눔 게시판 (채팅형)</h2>
-                <script data-sil-id="6984f3934a2dac001395395a">
-                    (function() {
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://bawkbox.com/widget/chatroom/6984f3934a2dac001395395a?page=' + encodeURIComponent(window.location.href);
-                        s.setAttribute('data-sil-id', '6984f3934a2dac001395395a');
-                        d.body.appendChild(s);
-                    })();
-                </script>
-                <div class="sil-widget-chatroom sil-widget" id="sil-widget-6984f3934a2dac001395395a"></div>
-            </section>
+            <div class="content-row">
+                <div class="card board-section" id="board">
+                    <h3>영안 나눔 게시판 (채팅형)</h3>
+                    <script data-sil-id="6984f3934a2dac001395395a">
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://bawkbox.com/widget/chatroom/6984f3934a2dac001395395a?page=' + encodeURIComponent(window.location.href);
+                            s.setAttribute('data-sil-id', '6984f3934a2dac001395395a');
+                            d.body.appendChild(s);
+                        })();
+                    </script>
+                    <div class="sil-widget-chatroom sil-widget" id="sil-widget-6984f3934a2dac001395395a"></div>
+                </div>
+                
+                <div class="card news-section" id="news">
+                    <h3>교회 소식</h3>
+                    <ul class="news-list">
+                        <li><span>✅</span> 안내: 엄미령 권사님 감사합니다</li>
+                        <li><span>✅</span> 다음 주 기도: 김숙이 권사님</li>
+                        <li><span>✅</span> 찬양: 오카리나 찬양팀 감사합니다</li>
+                        <li><span>✅</span> 모임: 금요 성경 공부 (오후 8시)</li>
+                    </ul>
+                </div>
+            </div>
         </main>
 
         <footer>
