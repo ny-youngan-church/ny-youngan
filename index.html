@@ -10,8 +10,15 @@
 
         /* 상단 메뉴바 */
         nav { background: #fff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
-        nav a { text-decoration: none; color: #444; font-weight: bold; margin: 0 15px; font-size: 1.05rem; }
+        nav a { text-decoration: none; color: #444; font-weight: bold; margin: 0 15px; font-size: 1.05rem; cursor: pointer; }
         nav a:hover { color: #007bff; }
+
+        /* [팝업창(모달) 스타일] */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+        .modal-content { position: relative; margin: 5% auto; padding: 0; width: 90%; max-width: 800px; animation: slideDown 0.4s; }
+        @keyframes slideDown { from {top: -300px; opacity: 0} to {top: 0; opacity: 1} }
+        .close-btn { position: absolute; top: 10px; right: 20px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .intro-img { width: 100%; height: auto; border-radius: 10px; }
 
         /* 배너 및 표어 */
         header { text-align: center; padding: 25px 0; background: #fff; margin-bottom: 25px; border-radius: 0 0 20px 20px; }
@@ -23,43 +30,36 @@
         .card { background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .card h3 { color: #8b4513; border-bottom: 2px solid #8b4513; padding-bottom: 12px; margin-top: 0; margin-bottom: 20px; font-size: 1.25rem; }
 
-        /* 설교 영역 조절 (2:1 비율) */
         .main-sermon { flex: 2; min-width: 320px; }
         .past-sermons { flex: 1; min-width: 300px; }
-        
-        /* 게시판 및 소식 영역 (2:1 비율) */
         .board-section { flex: 2; min-width: 320px; min-height: 600px; }
         .news-section { flex: 1; min-width: 300px; }
 
-        /* 지난 설교 리스트 스타일 */
         .sermon-list { list-style: none; padding: 0; margin: 0; }
         .sermon-item { padding: 12px 0; border-bottom: 1px dashed #ddd; display: flex; align-items: center; }
-        .sermon-item:last-child { border-bottom: none; }
-        .sermon-item a { text-decoration: none; color: #555; font-size: 0.95rem; display: flex; align-items: center; width: 100%; }
-        .sermon-item a:hover { color: #007bff; }
-        .play-icon { color: #ff0000; margin-right: 10px; font-size: 1.2rem; }
-
-        /* 소식 리스트 스타일 */
-        .news-list { list-style: none; padding: 0; line-height: 2.2; font-size: 1rem; }
-        .news-list li { margin-bottom: 10px; display: flex; align-items: flex-start; }
-        .news-list span { margin-right: 8px; }
+        .sermon-item a { text-decoration: none; color: #555; font-size: 0.95rem; width: 100%; }
+        .play-icon { color: #ff0000; margin-right: 10px; }
 
         footer { background: #333; color: #fff; padding: 40px 20px; text-align: center; border-radius: 20px 20px 0 0; margin-top: 20px; }
 
-        /* 모바일 대응 */
-        @media (max-width: 850px) {
-            .main-sermon, .past-sermons, .board-section, .news-section { flex: 1 1 100%; }
-        }
+        @media (max-width: 850px) { .main-sermon, .past-sermons, .board-section, .news-section { flex: 1 1 100%; } }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#intro">교회 소개</a>
+        <a onclick="openModal()">교회 소개</a>
         <a href="#sermon">주일 설교</a>
         <a href="#news">교회 소식</a>
         <a href="#board">나눔 게시판</a>
     </nav>
+
+    <div id="introModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img src="church-intro.png" alt="교회 소개" class="intro-img">
+        </div>
+    </div>
 
     <div class="container" id="intro">
         <header>
@@ -78,10 +78,10 @@
                 <div class="card past-sermons">
                     <h3>지난 말씀 다시보기</h3>
                     <ul class="sermon-list">
-                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID1" target="_blank"><span class="play-icon">▶</span> 1월 25일: 믿음의 경주</a></li>
-                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID2" target="_blank"><span class="play-icon">▶</span> 1월 18일: 성령의 열매</a></li>
-                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID3" target="_blank"><span class="play-icon">▶</span> 1월 11일: 참된 예배자</a></li>
-                        <li class="sermon-item"><a href="https://www.youtube.com/watch?v=비디오ID4" target="_blank"><span class="play-icon">▶</span> 1월 4일: 새해의 소망</a></li>
+                        <li class="sermon-item"><a href="#" onclick="alert('준비 중입니다')"><span class="play-icon">▶</span> 1월 25일: 믿음의 경주</a></li>
+                        <li class="sermon-item"><a href="#" onclick="alert('준비 중입니다')"><span class="play-icon">▶</span> 1월 18일: 성령의 열매</a></li>
+                        <li class="sermon-item"><a href="#" onclick="alert('준비 중입니다')"><span class="play-icon">▶</span> 1월 11일: 참된 예배자</a></li>
+                        <li class="sermon-item"><a href="#" onclick="alert('준비 중입니다')"><span class="play-icon">▶</span> 1월 4일: 새해의 소망</a></li>
                     </ul>
                 </div>
             </div>
@@ -102,11 +102,10 @@
                 
                 <div class="card news-section" id="news">
                     <h3>교회 소식</h3>
-                    <ul class="news-list">
-                        <li><span>✅</span> 안내: 엄미령 권사님 감사합니다</li>
-                        <li><span>✅</span> 다음 주 기도: 김숙이 권사님</li>
-                        <li><span>✅</span> 찬양: 오카리나 찬양팀 감사합니다</li>
-                        <li><span>✅</span> 모임: 금요 성경 공부 (오후 8시)</li>
+                    <ul style="list-style: none; padding: 0; line-height: 2.2; font-size: 1rem;">
+                        <li>✅ 안내: 엄미령 권사님 감사합니다</li>
+                        <li>✅ 다음 주 기도: 김숙이 권사님</li>
+                        <li>✅ 찬양: 오카리나 찬양팀 감사합니다</li>
                     </ul>
                 </div>
             </div>
@@ -118,5 +117,12 @@
             <p>전화: (917)678-2207 / Cell: (917)963-9356</p>
         </footer>
     </div>
+
+    <script>
+        var modal = document.getElementById("introModal");
+        function openModal() { modal.style.display = "block"; }
+        function closeModal() { modal.style.display = "none"; }
+        window.onclick = function(event) { if (event.target == modal) { closeModal(); } }
+    </script>
 </body>
 </html>
